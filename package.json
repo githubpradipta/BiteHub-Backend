@@ -4,11 +4,12 @@
   "description": "Node.js backend for bitehub web application",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/githubpradipta/BiteHub.git"
+    "url": "git+https://github.com/githubpradipta/BiteHub-Backend.git"
   },
   "keywords": [
     "Node.js",
@@ -26,6 +27,7 @@
   "homepage": "https://github.com/githubpradipta/BiteHub#readme",
   "dependencies": {
     "cookie-parser": "^1.4.7",
+    "dotenv": "^17.0.0",
     "express": "^5.1.0",
     "mongoose": "^8.16.1",
     "nodemon": "^3.1.10"
