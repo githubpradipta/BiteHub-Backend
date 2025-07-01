@@ -1,23 +1,29 @@
+//import packages
 const express = require('express');
 const httpErrors = require('http-errors');
 const connectDB = require("./DB/connect_DB");
+const errMiddleWare = require("./Middlewares/errorMiddleware")
 require('dotenv').config();
 
 const app = express();
-connectDB();
+connectDB(); //DB connection method call
 
 
 
 
-// Error handling middleware
-app.use((err,req,res,next)=>{
-    const status = err.status;
-    res.status(status).json({
-        message:err.message,
-        status: status
-    })
-})
 
+
+
+
+
+
+
+
+
+//middleware calls
+app.use(errMiddleWare);
+
+//Server listing
 const PORT = process.env.PORT || 5000;
 app.listen(PORT,()=>{
     console.log(`Backend server is running on port ${PORT}`);
