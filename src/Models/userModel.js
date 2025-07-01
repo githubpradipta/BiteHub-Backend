@@ -8,9 +8,9 @@ const userSchema = mongoose.Schema({
     email:{
         type:String,
         required:true,
-    },
-    age:{
-        type:Number,
+        unique:true,
+        lowercase:true,
+        match: [/\S+@\S+\.\S+/, 'Email is invalid'],
     },
     contact:{
         type:String,
@@ -20,9 +20,16 @@ const userSchema = mongoose.Schema({
         type:String,
         required:true,
     },
-    address:{
-        type:String,
-        required:true,
+    isAdmin:{
+        type:Boolean,
+        default:false,
+    },
+    address: {
+        street: String,
+        city: String,
+        state: String,
+        zip: String,
+        country: String
     },
     profileImage:{
         type:String,
@@ -30,17 +37,27 @@ const userSchema = mongoose.Schema({
     password:{
         type:String,
         required:true,
+        min: [8,"Password should be greater then 7"],
     },
     refresh_token:{
         type:String,
     },
-    saved_items:{
-        type:Array,
-    }
+    cart:[
+        {
+            dish:{
+                type:mongoose.Schema.Types.ObjectId,
+                ref:'Dish'
+            },
+            Quantity:{
+                type:Number,
+            }
+        }
+    ]
+},
+{ timestamps:true }
+);
 
-});
-
-const userModel = mongoose.model('user',userSchema);
+const userModel = mongoose.model('User',userSchema);
 
 module.exports = {
     userModel,
