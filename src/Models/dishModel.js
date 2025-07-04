@@ -36,7 +36,7 @@ const dishSchema = mongoose.Schema({
   isBest:{
     type:Boolean,
   },
-  Quantity:{
+  quantity:{
     type:Number,
     min:[0,"Quantity must be a positive number"],
   },

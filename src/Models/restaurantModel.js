@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
 const restaurantSchema = mongoose.Schema({
-    name: {
+  name: {
     type: String,
     required: true,
-    maxlength: 100
+    maxlength: 100,
+    unique:true
   },
   description: {
     type: String,
@@ -14,21 +15,24 @@ const restaurantSchema = mongoose.Schema({
     street: String,
     city: String,
     state: String,
-    zip: String,
+    zip: Number,
     country: {
       type: String,
       default: 'India'
-    }
+    },
+    
   },
   phone: {
     type: String,
-    trim: true
+    trim: true,
+    unique:true,
   },
   email: {
     type: String,
     trim: true,
     lowercase: true,
     match: [/\S+@\S+\.\S+/, 'Email is invalid'],
+    unique:true,
   },
   imageUrl: {
     type: String,
