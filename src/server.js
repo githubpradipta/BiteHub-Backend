@@ -4,6 +4,7 @@ const httpErrors = require('http-errors');
 const connectDB = require("./DB/connect_DB");
 const userRouter = require("./Routes/userRoute");
 const restaurantRouter = require("./Routes/restaurantRoute");
+const dishRouter = require("./Routes/dishRoute");
 const errMiddleWare = require("./Middlewares/errorMiddleware")
 require('dotenv').config();
 
@@ -15,6 +16,7 @@ connectDB(); //DB connection method call
 //routes
 app.use('/api/users',userRouter);
 app.use('/api/restaurants',restaurantRouter);
+app.use('/api/dishes',dishRouter);
 
 
 
