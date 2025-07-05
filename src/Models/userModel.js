@@ -48,6 +48,17 @@ const userSchema = mongoose.Schema({
                 type:mongoose.Schema.Types.ObjectId,
                 ref:'Dish'
             },
+            quantity:{
+                type:Number,
+            }
+        }
+    ],
+    orders:[
+        {
+            dish:{
+                type:mongoose.Schema.Types.ObjectId,
+                ref:'Dish'
+            },
             Quantity:{
                 type:Number,
             }

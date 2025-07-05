@@ -6,13 +6,15 @@ const{ getDishesByRestaurant,
     getDishesByResAndCategory,
     getDishesByType,
     updateDish,
-    deleteDish, } = require("../Controllers/dishController");
+    deleteDish,
+    getDishesByCategory } = require("../Controllers/dishController");
 
 router
 .get('/restaurant/:id',getDishesByRestaurant)
 .get('/',getDishs)
 .get('/filter/',getDishesByResAndCategory)
-.get('/:type',getDishesByType)
+.get('/type/:type',getDishesByType)
+.get('/:category',getDishesByCategory)
 .post('/:id',createDish)
 .put('/:id',updateDish)
 .delete('/:id',deleteDish)

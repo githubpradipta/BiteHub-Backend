@@ -52,6 +52,19 @@ const getDishesByRestaurant = async(req,res,next)=>{
     }
 }
 
+const getDishesByCategory = async(req,res,next)=>{
+    const category = req.params.category;
+
+    try {
+        const dishes = await dishModel.find({
+            category:{ $regex:category,$options: 'i' }
+        });
+        res.status(200).json(dishes);
+    } catch (err) {
+        next(err);
+    }
+}
+
 const getDishs = async(req,res,next)=>{
     try {
         const dishes = await dishModel.find();
@@ -135,4 +148,5 @@ module.exports = {
     getDishesByType,
     updateDish,
     deleteDish,
+    getDishesByCategory,
 }
