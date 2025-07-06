@@ -27,7 +27,6 @@
 - 📦 Place and track orders
 - 🔐 Secure API with token-based authentication
 - 📄 Error handling and validation
-- 🧪 (Optional) Unit tests using Jest/Mocha
 
 ---
 
