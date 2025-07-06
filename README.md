@@ -1,6 +1,6 @@
 # BiteHub-Backend 🍔🚀
 
-**BiteHub-Backend** is backend APIs built with **Node.js** for BiteHub, an online food delivery application. It handles essential backend functionalities such as user authentication, restaurant and menu management, cart operations, order placement, and more.
+**BiteHub-Backend** is backend APIs built with **Node.js** for BiteHub, an online food delivery application. It handles essential backend functionalities such as user authentication, restaurant and menu management, cart operations, order placements, and more.
 
 ## 🚧 Project Status
 
