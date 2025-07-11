@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/githubpradipta/BiteHub#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.0.0",
     "express": "^5.1.0",
