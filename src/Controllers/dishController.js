@@ -114,7 +114,22 @@ const getDishesByType = async(req,res,next)=>{
 }
 
 const updateDish = async(req,res,next)=>{
+    const dishId = req.params.id;
+    const data = req.body;
 
+    try {
+        const updatedDish = await dishModel.findByIdAndUpdate(dishId,
+            { $set: { ...data }},
+            { new: true}
+        )
+
+        res.status(200).json({
+            message: 'Dish Updated',
+            dish: updatedDish,
+        })
+    } catch (err) {
+        next(err);
+    }
 }
 
 const deleteDish = async(req,res,next)=>{

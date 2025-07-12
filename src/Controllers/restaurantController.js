@@ -52,7 +52,25 @@ const getResturentById = async(req,res,next) =>{
 }
 
 const updateRestaurent = async(req, res, next)=>{
+    const resID = req.params.id;
+    const newData = req.body;
 
+    try {
+
+        const updatedRes = await restaurantModel.findByIdAndUpdate(
+            resID,
+            { $set : {...newData} },
+            { new : true },
+        )
+
+        res.status(200).json({
+            message: "Restaurant Updated",
+            restaurant: updatedRes,
+        })
+        
+    } catch (err) {
+        next(err);
+    }
 }
 
 const deleteRestaurent = async(req,res,next)=>{

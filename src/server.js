@@ -1,12 +1,11 @@
 //import packages
 const express = require('express');
-const httpErrors = require('http-errors');
 const connectDB = require("./DB/connect_DB");
 const userRouter = require("./Routes/userRoute");
 const restaurantRouter = require("./Routes/restaurantRoute");
 const dishRouter = require("./Routes/dishRoute");
 const authRouter = require("./Routes/authRoute");
-const errMiddleWare = require("./Middlewares/errorMiddleware")
+const errMiddleWare = require("./Middlewares/errorMiddleware");
 require('dotenv').config();
 
 const app = express();
