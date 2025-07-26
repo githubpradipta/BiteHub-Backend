@@ -28,8 +28,16 @@ const createRestaurant = async(req, res, next)=>{
 }
 
 const getResturents = async(req,res,next)=>{
+    const {category} =  req.query;
     try {
-        const restaurants = await restaurantModel.find();
+        let restaurants = null;
+        if(category){
+            restaurants = await restaurantModel.find({categories:category})
+        }
+        else{
+            restaurants = await restaurantModel.find();
+        }
+
         res.status(200).json(restaurants);
 
     } catch (err) {
@@ -37,11 +45,13 @@ const getResturents = async(req,res,next)=>{
     }
 }
 
+
+
 const getResturentById = async(req,res,next) =>{
     const resId = req.params.id;
-
+    
     try {
-        const restaurant = restaurantModel.findById(resId);
+        const restaurant = await restaurantModel.findById(resId);
         if(!restaurant) return next(httpError(404,"Restaurant not found"));
 
         res.status(200).json(restaurant);

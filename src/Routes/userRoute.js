@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const { getUserProfile } = require("../Controllers/userController")
+const { getUserProfile, addAddress, deleteAddressById } = require("../Controllers/userController")
 const { getUserOrders, addToOrder, deleteOrderById } = require("../Controllers/orderController");
 const { getUserCart, addToCart, deleteFromCart, increamentQuantityofCartItem } = require("../Controllers/cartController");
 
 router
 //core user routes
 .get('/profile/:id',getUserProfile)
+.post('/addresses/:id',addAddress)
+.delete('/addresses/:id',deleteAddressById)
 
 //cart routes
 .get('/:id/cart',getUserCart)

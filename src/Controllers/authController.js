@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 
 const createUser = async(req,res,next) =>{
     const newUser = req.body;
-
+    
     try {
         const user = await userModel.findOne({email:newUser.email})
         if(user) return next(httpErrors(409,"User already exists"));

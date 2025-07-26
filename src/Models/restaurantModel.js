@@ -14,19 +14,20 @@ const restaurantSchema = mongoose.Schema({
   address: {
     street: String,
     city: String,
-    state: String,
-    zip: Number,
+    area: String,
+    zip: String,
     country: {
       type: String,
       default: 'India'
     },
     
   },
-  phone: {
-    type: String,
-    trim: true,
-    unique:true,
-  },
+  categories:[String],
+  // contact: {
+  //   type: String,
+  //   trim: true,
+  //   unique:true,
+  // },
   email: {
     type: String,
     trim: true,
@@ -34,7 +35,7 @@ const restaurantSchema = mongoose.Schema({
     match: [/\S+@\S+\.\S+/, 'Email is invalid'],
     unique:true,
   },
-  imageUrl: {
+  img: {
     type: String,
     trim: true,
   },
